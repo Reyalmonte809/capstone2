@@ -1,26 +1,30 @@
-.navbar{
+.navbar {
     background-color: darkgreen;
 }
 
-body{
+body {
     background-color: burlywood;
 }
+
 .navbar img {
     height: 100px;
     width: 150px;
     padding-left: 1rem;
 }
-.hamburger{
+
+.hamburger {
     display: flex;
     gap: 2rem;
     font-size: 20px;
     font-family: sans-serif;
 }
-a{
+
+a {
     text-decoration: none;
     color: antiquewhite;
 }
-footer{
+
+footer {
     background-color: darkgreen;
     position: fixed;
     bottom: 0;
@@ -29,42 +33,25 @@ footer{
     width: 100%;
     color: antiquewhite;
 }
-img, .bodyImage{
+
+img,
+.bodyImage {
     height: 200px;
     max-width: 100%;
     width: 100%;
     object-fit: cover;
     object-position: 0px 20%;
 }
-.topFlex{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    text-align: center;
-    gap: 1rem;
-    font-size: 1rem;
-    flex-wrap: nowrap;
-    align-content: center;
-}
-.bottomFlex{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    gap: 1rem;
-    font-size: 1rem;
-    flex-wrap: nowrap;
-    align-content: center;
-    text-align: center;
-    margin-bottom: 5rem;
-}
-h1{
+
+
+h1 {
     color: darkgreen;
-    text-align: center ;
+    text-align: center;
     margin: 1rem;
 }
 
 
-#selectorElement{
+#selectorElement {
     display: inline-block;
     border: 1px solid green;
     box-shadow: .15rem .15rem;
@@ -73,14 +60,14 @@ h1{
     margin-left: auto;
     margin-right: auto;
     width: 100%;
-    max-width: 40%; 
+    max-width: 40%;
     height: 150px
-    /* float:left */
+        /* float:left */
 
 }
 
 
-#imgElement{
+#imgElement {
     /* display: inline-block; */
     border: 1px solid green;
     box-shadow: .15rem .15rem;
@@ -89,12 +76,13 @@ h1{
     margin-left: auto;
     margin-right: auto;
     width: 100%;
-    max-width: 40%; 
+    max-width: 40%;
     float: right;
     height: 150px;
 
 
 }
+
 #descriptionElement {
     display: inline-block;
     border: 1px solid green;
@@ -104,10 +92,11 @@ h1{
     margin-bottom: 5rem;
     height: 150px;
     width: 100%;
-    max-width: 40%; 
+    max-width: 40%;
 }
-#mapElement{
-    display: inline-block;
+
+#mapElement {
+    display: block;
     border: 1px solid green;
     box-shadow: .15rem .15rem;
     border-radius: 1rem;
@@ -115,6 +104,35 @@ h1{
     height: 150px;
     margin-bottom: 5rem;
     width: 100%;
-    max-width: 40%; 
+    max-width: 40%;
     float: right;
+}
+
+.carousel-inner {
+    width: 100%;
+    max-width: 80%;
+    height: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+.bottomText, .topText {
+    margin-bottom: 5rem;
+    text-align: center;
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 20pt;
+    
+}
+
+img.d-block{
+    height:100%;
+    object-fit: contain;
+    width: 100%;
+    border-radius: 1rem;
+
+}
+.carousel-inner{
+    margin-bottom: 5rem;
 }
