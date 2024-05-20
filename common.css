@@ -53,22 +53,20 @@ h1 {
 
 #selectorElement {
     display: inline-block;
-    border: 1px solid green;
-    box-shadow: .15rem .15rem;
     border-radius: 1rem;
-    opacity: .5;
     margin-left: auto;
     margin-right: auto;
     width: 100%;
-    max-width: 40%;
-    height: 150px
-        /* float:left */
-
+    max-width: 50%;
+    height: 17.5vw;
+    font-size: 1.5rem;
+    margin-top: 3rem;
+    text-align: center;
 }
 
 
-#imgElement {
-    /* display: inline-block; */
+/* #imgElement {
+    display: inline-block; 
     border: 1px solid green;
     box-shadow: .15rem .15rem;
     border-radius: 1rem;
@@ -81,18 +79,16 @@ h1 {
     height: 150px;
 
 
-}
+} */
 
 #descriptionElement {
     display: inline-block;
-    border: 1px solid green;
-    box-shadow: .15rem .15rem;
     border-radius: 1rem;
-    opacity: .5;
     margin-bottom: 5rem;
-    height: 150px;
+    height: 17.5vw;
     width: 100%;
-    max-width: 40%;
+    max-width: 50%;
+    font-size: 2rem;
 }
 
 #mapElement {
@@ -104,7 +100,7 @@ h1 {
     height: 150px;
     margin-bottom: 5rem;
     width: 100%;
-    max-width: 40%;
+
     float: right;
 }
 
@@ -135,4 +131,13 @@ img.d-block{
 }
 .carousel-inner{
     margin-bottom: 5rem;
+}
+.imgElement{
+    object-fit: contain ;
+    height: 35vw;
+    width: 100%;
+    float: right;
+    max-width: 50%;
+    margin-top: 3rem;
+    opacity: 0;
 }

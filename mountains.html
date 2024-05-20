@@ -68,7 +68,7 @@
             <p id="effortElement"></p>
             <p id="elevationElement"></p>
         </div>
-        <div class="imgElement" id="imgElement">Img Box</div>
+        <img class="imgElement" id="imgElement">
     </div>
     <div class="bottommountain" id="bottommountain">
         <div class="descriptionElement" id="descriptionElement"></div>
@@ -92,17 +92,27 @@
         option.innerText = trail.name;
         mountainElement.appendChild(option)
     }
-    selectorElement.addEventListener("change", (event) => {
+    topmountain.addEventListener("change", (event) => {
         effortElement.innerText = "";
-        for (n of mountainsArray) {
-            if (mountainElement.value == n.name) {
-                nameElement.innerText = n.name;
-                effortElement.innerText = n.effort;
-                elevationElement.innerText = n.elevation;
-                imgElement.src = "../images/" + n.img;
-                descriptionElement.innerText = n.desc;
+        for (trail of mountainsArray) {
+            if (mountainElement.value == trail.name) {
+                nameElement.innerText = trail.name;
+                effortElement.innerText = "Expected Difficulty: " + trail.effort;
+                elevationElement.innerText = "Height in feet: " + trail.elevation;
+                // imgElement.innerText = imgElement.src
+                
+                imgElement.src = "./enjoy-the-outdoors/images/" + trail.img;
+                imgElement.style.opacity = 1
+                // imgElement.style.opacity = 1
+                descriptionElement.innerText = trail.desc;
             }
-
+            // for(m of mountainsArray) {
+            //     if(mountainElement.value == m.name){
+            //         const opt = document.createElement("IMG");
+            //         opt.src = "/images/ + ${m.img}";
+            //         imgElement.appendChild(opt)
+            //     }
+            // }
         }
     })
     // selectorElement.addEventListener("change", (event) =>{
