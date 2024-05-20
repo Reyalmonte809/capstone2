@@ -61,6 +61,7 @@
     </div>
     <div class="topmountain" id="topmountain">
         <div class="selectorElement" id="selectorElement">
+            <p>Please pick a hiking trail!</p>
             <select id="mountainElement">
                 <option value=""> What Type of mountain Trail?</option>
             </select>
@@ -72,6 +73,7 @@
     </div>
     <div class="bottommountain" id="bottommountain">
         <div class="descriptionElement" id="descriptionElement"></div>
+        <hr>
         <div class="mapElement" id="mapElement">Map Box</div>
     </div>
 
@@ -98,7 +100,7 @@
             if (mountainElement.value == trail.name) {
                 nameElement.innerText = trail.name;
                 effortElement.innerText = "Expected Difficulty: " + trail.effort;
-                elevationElement.innerText = "Height in feet: " + trail.elevation;
+                elevationElement.innerText = "Height in feet: " + trail.elevation.toLocaleString();
                 // imgElement.innerText = imgElement.src
                 
                 imgElement.src = "./enjoy-the-outdoors/images/" + trail.img;

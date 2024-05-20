@@ -141,3 +141,8 @@ img.d-block{
     margin-top: 3rem;
     opacity: 0;
 }
+
+hr{
+    color:white;
+    border-width: 1rem;
+}
