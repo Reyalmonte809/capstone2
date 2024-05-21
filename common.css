@@ -89,6 +89,7 @@ h1 {
     width: 100%;
     max-width: 50%;
     font-size: 2rem;
+    padding: 2rem;
 }
 
 #mapElement {
@@ -145,4 +146,50 @@ img.d-block{
 hr{
     color:white;
     border-width: 1rem;
+}
+#googleMap{
+    margin-bottom: 8rem;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0;
+}
+#guide{
+    text-align: left;
+}
+
+#leftBody{
+    max-width: 40%;
+    width: 100%;
+    border: 1px solid ;
+    text-align: center;
+    padding-bottom: 5rem;
+    margin-top: 15rem;
+    box-shadow: .15rem .15rem;
+    border-radius: 1rem;
+    margin-left: 5rem;
+    display: inline-block;
+}
+
+#leftBody select{
+    margin-top: 2rem;
+}
+
+#leftBody input{
+    margin-top: 1rem;
+}
+
+#rightBody{
+    border: 1px solid;
+    border-radius: 1rem;
+    box-shadow: .15rem .15rem;
+    max-width: 40%;
+    width: 100%;
+    float: right;
+    margin-top: 5rem;
+    margin-right: 5rem;
+    padding-left: 2rem;
+    margin-bottom: 5rem;
+}
+#rightbody, #googleMap{
+    margin-top: 2rem;
 }
