@@ -9,6 +9,9 @@
     <script src="enjoy-the-outdoors/scripts/nationalParkData.js"></script>
     <script src="enjoy-the-outdoors/scripts/locationData.js"></script>
     <script src="enjoy-the-outdoors/scripts/parkTypeData.js"></script>
+    <script async
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBKR-MQhPWEv-893LmZmtwO0yWF_1sTvmU&loading=async&callback=initMap">
+        </script>
 
     <link rel="stylesheet" href="./common.css">
 
@@ -99,21 +102,30 @@
         } else {
             x.style.display = "block";
         }
-    }
+    };
     for (trail of locationsArray) {
         const option = document.createElement("option");
         option.innerText = trail;
         locationElement.appendChild(option)
-    }
+    };
     for (type of parkTypesArray) {
         const option2 = document.createElement("option");
         option2.innerText = type;
         parkTypeElement.appendChild(option2)
-    }
+    };
 
-     locationElement.addEventListener("change", () => {
-        for(place of nationalParksArray){
-            if(locationElement.value == place.State){
+
+    locationElement.addEventListener("change", () => {
+        nameElement.innerText = "";
+        addressElement.innerText = "";
+        cityElement.innerText = "";
+        stateElement.innerText = "";
+        zipElement.innerText = "";
+        phoneElement.innerText = "";
+        faxElement.innerText = "";
+        urlElement.innerText = "";
+        for (place of nationalParksArray) {
+            if (locationElement.value == place.State) {
                 nameElement.innerText = "\n" + place.LocationName;
                 addressElement.innerText = place.Address + ",";
                 cityElement.innerText = place.City + ", ";
@@ -122,41 +134,39 @@
                 phoneElement.innerText = place.Phone;
                 faxElement.innerText = place.Fax;
                 urlElement.innerText = place.Visit;
-                //  myMap(trail);
+                myMap(trail);
             }
         }
-     });
+    });
 
 
-//     function myMap(trail) {
-//         for(trails of nationalParksArray){
+    function myMap(trail) {
+        for (trails of nationalParksArray) {
 
-//     let lat = trails.Latitude;
-//     let lng = trails.Longitude;
+            let lat = trails.Latitude;
+            let lng = trails.Longitude;
 
-//     var mapProp = {
-//         center: new google.maps.LatLng(lat, lng),
-//         zoom: 13,
-//     };
+            var mapProp = {
+                center: new google.maps.LatLng(lat, lng),
+                zoom: 13,
+            };
 
-//     var map = new google.maps.Map(document.getElementById("googleMapPark"), mapProp);
+            var map = new google.maps.Map(document.getElementById("googleMapPark"), mapProp);
 
-//     // Add marker to the map
-//     var marker = new google.maps.Marker({
-//         position: new google.maps.LatLng(lat, lng),
-//         map: map,
-//         title: trail.name // You can set the title of the marker
-//     });
 
-//     map.panTo(new google.maps.LatLng(lat, lng));
-// };
+            var marker = new google.maps.Marker({
+                position: new google.maps.LatLng(lat, lng),
+                map: map,
+                title: trail.name
+            });
 
-// }
+            map.panTo(new google.maps.LatLng(lat, lng));
+        };
+
+    }
 
 
 </script>
-    <!-- <script
-    src="https://maps.googleapis.com/maps/api/js?AIzaSyBKR-MQhPWEv-893LmZmtwO0yWF_1sTvmU">
-</script> -->
+
 
 </html>

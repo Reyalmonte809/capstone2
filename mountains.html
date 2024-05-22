@@ -155,11 +155,11 @@
 
     var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
 
-    // Add marker to the map
+
     var marker = new google.maps.Marker({
         position: new google.maps.LatLng(coord.lat, coord.lng),
         map: map,
-        title: trail.name // You can set the title of the marker
+        title: trail.name
     });
 
     map.panTo(new google.maps.LatLng(coord.lat, coord.lng));
