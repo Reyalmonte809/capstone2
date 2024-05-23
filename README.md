@@ -1,5 +1,5 @@
 
-https://reyalmonte809.github.io/capstone2/
+https://reyalmonte809.github.io/capstone2/<br>
 This was my first attempt at using a carousel.
 ![readMeCapture1](https://github.com/Reyalmonte809/capstone2/assets/166435045/568d107b-6ab7-452c-8ef9-46d862295f88)
 
