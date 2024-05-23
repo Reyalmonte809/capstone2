@@ -9,14 +9,13 @@
     <script src="enjoy-the-outdoors/scripts/nationalParkData.js"></script>
     <script src="enjoy-the-outdoors/scripts/locationData.js"></script>
     <script src="enjoy-the-outdoors/scripts/parkTypeData.js"></script>
-    <script src="./enjoy-the-outdoors/scripts/main.js"></script>
     <script async
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBKR-MQhPWEv-893LmZmtwO0yWF_1sTvmU&loading=async&callback=initMap">
         </script>
-
     <link rel="stylesheet" href="./common.css">
 
     <style>
+        /**************************   hamburger menu         *******************************/
         .navbar {
             overflow: hidden;
             position: relative;
@@ -50,7 +49,7 @@
     </style>
 </head>
 
-<body>
+<body><!--                          main body content                            -->
     <nav id="navbar" class="navbar">
         <img src="./enjoy-the-outdoors/images/WhiteLogo(1).png" alt="logo">
         <div class="hamburger" id="hamburger">
@@ -78,24 +77,11 @@
         </select>
     </div>
     <div class="rightBody" id="rightBody">
-        <!-- <h1>Contact Information</h1> -->
-        <!-- <p><strong>Name</strong>
-            <span id="nameElement"></span>
-        </p>
-        <p><strong>Address</strong></p>
-        <span id="addressElement"></span><br>
-        <span id="cityElement">City</span>
-        <span id="stateElement">State</span>
-        <span id="zipElement">Zip</span><br>
-        <p><strong>Phone</strong></p>
-        <span id="phoneElement">Main Phone:</span>
-        <span id="faxElement">Fax: </span>
-        <p id="googleMapPark" style="width:100%;height:200px;"></p>
-        <p id="urlElement">URL if applicable:</p> -->
     </div>
     <footer> <strong>&copy;ALCON Parks</strong> </footer>
 </body>
 <script>
+    //////////////////////// JavaScript for hamburger ///////////////////////////////
     function myFunction() {
         var x = document.getElementById("hamburger");
         if (x.style.display === "block") {
@@ -104,6 +90,7 @@
             x.style.display = "block";
         }
     };
+    ////////////////////////////// Separation of ParkType Array and Location Array //////////////////////////
     for (trail of locationsArray) {
         const option = document.createElement("option");
         option.innerText = trail;
@@ -114,16 +101,16 @@
         option2.innerText = type;
         parkTypeElement.appendChild(option2)
     };
-
+    ////////////////////// NationalPark array organized with google map ////////////////////////
     locationElement.addEventListener("change", () => {
-    rightBody.innerHTML = '';
+        rightBody.innerHTML = '';
 
-    const selectedState = locationElement.value;
-    const locationsHTML = nationalParksArray
-        .filter(place => selectedState === place.State)
-        .map(place => {
-            const mapContainerId = `googleMapPark_${place.LocationName.replace(/\s/g, '_')}`;
-            return `
+        const selectedState = locationElement.value;
+        const locationsHTML = nationalParksArray
+            .filter(place => selectedState === place.State)
+            .map(place => {
+                const mapContainerId = `googleMapPark_${place.LocationName.replace(/\s/g, '_')}`;
+                return `
                 <div>
                     <h1>Contact Information</h1>
                     <p><strong>Name:</strong> ${place.LocationName}</p>
@@ -133,76 +120,71 @@
                     <div id="${mapContainerId}" style="width: 90%; height: 200px;"></div>
                 </div>
             `;
-        })
-        .join('')
+            })
+            .join('')
         rightBody.style.opacity = 1;
-        
 
-
-    rightBody.innerHTML = locationsHTML;
-    nationalParksArray
-        .filter(place => selectedState === place.State)
-        .forEach(place => {
-            const mapContainerId = `googleMapPark_${place.LocationName.replace(/\s/g, '_')}`;
-            myMap(mapContainerId, place.Latitude, place.Longitude);
-        });
-});
-
-/////////////////////////
-parkTypeElement.addEventListener("change", () => {
-    rightBody.innerHTML = '';
-
-    const selectedState = parkTypeElement.value;
-    const parkTypesHTML = nationalParksArray
-        .filter(o => o.LocationName.toUpperCase().includes(
-                    parkTypeElement.value.toUpperCase()))
-        .map(place => {
-            const mapContainerId = `googleMapPark_${place.LocationName.replace(/\s/g, '_')}`;
-            return `
-                <div>
-                    <h1>Contact Information</h1>
-                    <p><strong>Name:</strong> ${place.LocationName}</p>
-                    <p><strong>Address:</strong> ${place.Address}, ${place.City}, ${place.State} ${place.ZipCode}</p>
-                    <p><strong>Phone:</strong> Main Phone: ${place.Phone}, Fax: ${place.Fax}</p>
-                    <p><strong>URL:</strong> <a href="${place.Visit}" class="visit-site">${place.LocationName}</a></p>
-                    <div id="${mapContainerId}" style="width: 90%; height: 200px;"></div>
-                </div>
-            `;
-        })
-        .join('')
-        rightBody.style.opacity = 1;
-        
-
-
-    rightBody.innerHTML = parkTypesHTML;
-    nationalParksArray
-        .filter(o => o.LocationName.toUpperCase().includes(
-                    parkTypeElement.value.toUpperCase()))
-        .forEach(place => {
-            const mapContainerId = `googleMapPark_${place.LocationName.replace(/\s/g, '_')}`;
-            myMap(mapContainerId, place.Latitude, place.Longitude);
-        });
-});
-
-
-////////////////////////////////
-
-function myMap(mapContainerId, lat, lng) {
-    var mapProp = {
-        center: new google.maps.LatLng(lat, lng),
-        zoom: 10,
-    };
-
-    var map = new google.maps.Map(document.getElementById(mapContainerId), mapProp);
-
-    var marker = new google.maps.Marker({
-        position: new google.maps.LatLng(lat, lng),
-        map: map,
-        title: 'Location'
+        rightBody.innerHTML = locationsHTML;
+        nationalParksArray
+            .filter(place => selectedState === place.State)
+            .forEach(place => {
+                const mapContainerId = `googleMapPark_${place.LocationName.replace(/\s/g, '_')}`;
+                myMap(mapContainerId, place.Latitude, place.Longitude);
+            });
     });
 
-    map.panTo(new google.maps.LatLng(lat, lng));
-}
+    ///////////////////////// ParkType array organized with google map ////////////////////////
+    parkTypeElement.addEventListener("change", () => {
+        rightBody.innerHTML = '';
+
+        const selectedState = parkTypeElement.value;
+        const parkTypesHTML = nationalParksArray
+            .filter(o => o.LocationName.toUpperCase().includes(
+                parkTypeElement.value.toUpperCase()))
+            .map(place => {
+                const mapContainerId = `googleMapPark_${place.LocationName.replace(/\s/g, '_')}`;
+                return `
+                <div>
+                    <h1>Contact Information</h1>
+                    <p><strong>Name:</strong> ${place.LocationName}</p>
+                    <p><strong>Address:</strong> ${place.Address}, ${place.City}, ${place.State} ${place.ZipCode}</p>
+                    <p><strong>Phone:</strong> Main Phone: ${place.Phone}, Fax: ${place.Fax}</p>
+                    <p><strong>URL:</strong> <a href="${place.Visit}" class="visit-site">${place.LocationName}</a></p>
+                    <div id="${mapContainerId}" style="width: 90%; height: 200px;"></div>
+                </div>
+            `;
+            })
+            .join('')
+        rightBody.style.opacity = 1;
+
+        rightBody.innerHTML = parkTypesHTML;
+        nationalParksArray
+            .filter(o => o.LocationName.toUpperCase().includes(
+                parkTypeElement.value.toUpperCase()))
+            .forEach(place => {
+                const mapContainerId = `googleMapPark_${place.LocationName.replace(/\s/g, '_')}`;
+                myMap(mapContainerId, place.Latitude, place.Longitude);
+            });
+    });
+
+    //////////////////////////////// MyMap Section /////////////////////////////////////////////
+
+    function myMap(mapContainerId, lat, lng) {
+        var mapProp = {
+            center: new google.maps.LatLng(lat, lng),
+            zoom: 10,
+        };
+
+        var map = new google.maps.Map(document.getElementById(mapContainerId), mapProp);
+
+        var marker = new google.maps.Marker({
+            position: new google.maps.LatLng(lat, lng),
+            map: map,
+            title: 'Location'
+        });
+
+        map.panTo(new google.maps.LatLng(lat, lng));
+    }
 </script>
 
 
