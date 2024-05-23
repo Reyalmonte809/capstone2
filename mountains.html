@@ -78,6 +78,7 @@
         <div class="descriptionElement" id="descriptionElement"></div>
         <hr>
         <div id="googleMap" style="width:80%;height:400px;"></div>
+        <div id="sunRiseSet" class="sunRiseSet">
     </div>
 
     <footer> <strong>&copy;ALCON Parks</strong> </footer>
@@ -104,18 +105,18 @@
                 nameElement.innerText = trail.name;
                 effortElement.innerText = "Expected Difficulty: " + trail.effort;
                 elevationElement.innerText = "Height in feet: " + trail.elevation.toLocaleString();
-                // imgElement.innerText = imgElement.src
                 imgElement.src = "./enjoy-the-outdoors/images/" + trail.img;
                 imgElement.style.opacity = 1
-                // imgElement.style.opacity = 1
                 descriptionElement.innerText = trail.desc;
                 myMap(trail)
                 googleMap.style.opacity = 1;
+                
             }
 
         }
 
-    })
+    });
+
     // selectorElement.addEventListener("change", (event) =>{
     //     for(m of mountainsArray){
     //         if(mountainElement.value = m.name){

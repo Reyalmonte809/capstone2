@@ -134,7 +134,8 @@
                 </div>
             `;
         })
-        .join('');
+        .join('')
+        rightBody.style.opacity = 1;
         
 
 
@@ -146,6 +147,45 @@
             myMap(mapContainerId, place.Latitude, place.Longitude);
         });
 });
+
+/////////////////////////
+parkTypeElement.addEventListener("change", () => {
+    rightBody.innerHTML = '';
+
+    const selectedState = parkTypeElement.value;
+    const parkTypesHTML = nationalParksArray
+        .filter(o => o.LocationName.toUpperCase().includes(
+                    parkTypeElement.value.toUpperCase()))
+        .map(place => {
+            const mapContainerId = `googleMapPark_${place.LocationName.replace(/\s/g, '_')}`;
+            return `
+                <div>
+                    <h1>Contact Information</h1>
+                    <p><strong>Name:</strong> ${place.LocationName}</p>
+                    <p><strong>Address:</strong> ${place.Address}, ${place.City}, ${place.State} ${place.ZipCode}</p>
+                    <p><strong>Phone:</strong> Main Phone: ${place.Phone}, Fax: ${place.Fax}</p>
+                    <p><strong>URL:</strong> <a href="${place.Visit}" class="visit-site">${place.LocationName}</a></p>
+                    <div id="${mapContainerId}" style="width: 90%; height: 200px;"></div>
+                </div>
+            `;
+        })
+        .join('')
+        rightBody.style.opacity = 1;
+        
+
+
+    rightBody.innerHTML = parkTypesHTML;
+    nationalParksArray
+        .filter(o => o.LocationName.toUpperCase().includes(
+                    parkTypeElement.value.toUpperCase()))
+        .forEach(place => {
+            const mapContainerId = `googleMapPark_${place.LocationName.replace(/\s/g, '_')}`;
+            myMap(mapContainerId, place.Latitude, place.Longitude);
+        });
+});
+
+
+////////////////////////////////
 
 function myMap(mapContainerId, lat, lng) {
     var mapProp = {
