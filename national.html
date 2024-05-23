@@ -67,11 +67,10 @@
     <div class="leftBody" id="leftBody">
         <h1 id="guide">Park Information Guide</h1>
         <h2>Search By:</h2>
-        <span>Search by Location: </span><input type="checkbox" class="location" id="locationInfo"><br>
-        <span>Search by Park Type: </span><input type="checkbox" class="park" id="parkInfo"><br>
         <select id="locationElement">
             <option>Location</option>
         </select>
+        <span>OR</span>
         <select id="parkTypeElement">
             <option>Park Type</option>
         </select>
@@ -79,7 +78,6 @@
     <div class="rightBody" id="rightBody">
     </div>
     <footer> <strong>&copy;ALCON Parks</strong> </footer>
-</body>
 <script>
     //////////////////////// JavaScript for hamburger ///////////////////////////////
     function myFunction() {
@@ -186,6 +184,9 @@
         map.panTo(new google.maps.LatLng(lat, lng));
     }
 </script>
+
+</body>
+
 
 
 </html>
