@@ -113,8 +113,8 @@
                     <h1>Contact Information</h1>
                     <p><strong>Name:</strong> ${place.LocationName}</p>
                     <p><strong>Address:</strong> ${place.Address}, ${place.City}, ${place.State} ${place.ZipCode}</p>
-                    <p><strong>Phone:</strong> Main Phone: ${place.Phone}, Fax: ${place.Fax}</p>
-                    <p><strong>URL:</strong> <a href="${place.Visit}" class="visit-site">${place.LocationName}</a></p>
+                    <p><strong>Phone:</strong> Main Phone: ${place.Phone ? place.Phone : 'N/A'}, Fax: ${place.Fax ? place.Fax : 'N/A'}</p>
+                    <p><strong>URL:</strong> <a href="${place.Visit}" class="visit-site">${place.Visit ? place.Visit : 'No Website Available '},<br> ${place.LocationName}</a></p>
                     <div id="${mapContainerId}" style="width: 90%; height: 200px;"></div>
                 </div>
             `;
@@ -146,8 +146,8 @@
                     <h1>Contact Information</h1>
                     <p><strong>Name:</strong> ${place.LocationName}</p>
                     <p><strong>Address:</strong> ${place.Address}, ${place.City}, ${place.State} ${place.ZipCode}</p>
-                    <p><strong>Phone:</strong> Main Phone: ${place.Phone}, Fax: ${place.Fax}</p>
-                    <p><strong>URL:</strong> <a href="${place.Visit}" class="visit-site">${place.LocationName}</a></p>
+                    <p><strong>Phone:</strong> Main Phone: ${place.Phone ? place.Phone : 'N/A'}, Fax: ${place.Fax ? place.Fax : 'N/A'}</p>
+                    <p><strong>URL:</strong> <a href="${place.Visit}" class="visit-site">${place.Visit ? place.Visit : 'No Website Available '},<br> ${place.LocationName}</a></p>
                     <div id="${mapContainerId}" style="width: 90%; height: 200px;"></div>
                 </div>
             `;
